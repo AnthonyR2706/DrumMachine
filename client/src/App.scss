@@ -1,0 +1,147 @@
+$Primary: #2B4665;
+$Secondary: #3E677D;
+$Tertiary: #559098;
+$Quaternary: #A6D5BF;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  background: $Primary;
+  .app__wrapper {
+    padding-left: calc(100vw - 100%);
+  }
+  .drumContainer {
+    position: fixed;
+    display: inline-flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    background: $Secondary;
+    padding: 1%;
+    .buttonContainer {
+      width: 50%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 5%;
+      user-select: none;
+      .drumButton {
+        background: $Tertiary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10%;
+        box-shadow: 4px 4px 5px black;
+        cursor: pointer;
+      }
+      .pressed {     
+        height: 98%;
+        margin-top: auto;
+        box-shadow: 5px 5px 6px black;   
+      }
+      .on {
+        background: $Quaternary;
+      }
+    }
+    .contentContainer {
+      padding-left: 5%;
+      width: 50%;
+      height: 100%;
+      justify-content: center;
+      .soundText {
+        background: $Tertiary;
+        width: 80%;
+        height: 15%;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 10%;
+      }
+      .toggleText {
+        font-weight: bold;
+        text-align: center;
+        margin-top: 5%;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 1%;
+        margin-bottom: 10%;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .sliderToggle {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $Primary;
+        transition: .4s;
+        border-radius: 15%;
+      }
+      .sliderToggle:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: $Tertiary;
+        transition: .4s;
+        border-radius: 15%;
+      }      
+      input:checked + .sliderToggle {
+        background-color: $Quaternary;
+      }      
+      input:focus + .sliderToggle {
+        box-shadow: 0 0 1px $Primary;
+      }      
+      input:checked + .sliderToggle:before {
+        transform: translateX(26px);
+      }
+      .slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 90%;
+        height: 15px;
+        background: $Primary;
+        outline: none;
+        margin-left: 5%;
+        margin-bottom: 5%;
+      }
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; 
+        appearance: none;
+        width: 15px;
+        height: 40px;
+        border-radius: none;
+        background: $Tertiary;
+        cursor: pointer; 
+        border: none;
+      }
+      .slider::-moz-range-thumb {
+        width: 15px;
+        height: 40px;
+        border-radius: 0px;
+        background: $Quaternary;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+}
